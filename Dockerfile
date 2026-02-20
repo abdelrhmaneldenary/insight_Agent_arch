@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./src/
 
 # 6. Expose the port FastAPI runs on
-EXPOSE 8000
+# Expose the port Hugging Face requires
+EXPOSE 7860
 
-# 7. Define the command to start the server
-CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Command to run the application on port 7860
+CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "7860"]

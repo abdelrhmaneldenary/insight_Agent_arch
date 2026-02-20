@@ -33,7 +33,10 @@ jobs:
       run: |
         flake8 src tests --count --select=E9,F63,F7,F82 --show-source --statistics
 
-    # 5. Run the Unit Tests
+# 5. Run the Unit Tests
     - name: Run Pytest
+      env:
+        GROQ_API_KEY: "dummy_groq_key_for_testing"
+        TAVILY_API_KEY: "dummy_tavily_key_for_testing"
       run: |
         pytest tests/
